@@ -24,11 +24,27 @@ const node = class {
     return ++i;
   }
 
+  head(i) {
+    return this.value;
+  }
+
+  replace(index, value, i) {
+    i = i || 0;
+    if (index == i) return this.value = value;
+    if (this.next) return this.next.replace(index, value, ++i);
+  }
+
 };
 
-var list = new node(1);
-console.log(list);
-list.append(3);
-console.log(list.length());
-list.insert(2, 0);
-console.log(list.length());
+function test() {
+  var list = new node(1);
+  console.log(list);
+  list.append(3);
+  console.log(list);
+  // list.insert(2, 0);
+  console.log(list);
+  console.log(list.head());
+  list.replace(0, 5);
+  console.log(list);
+}
+test();
