@@ -18,11 +18,17 @@ const node = class {
     return this.next.insert(value, index, ++i);
   }
 
+  length(i) {
+    i = i || 0;
+    if (this.next) return this.next.length(++i);
+    return ++i;
+  }
+
 };
 
 var list = new node(1);
 console.log(list);
 list.append(3);
-console.log(list);
+console.log(list.length());
 list.insert(2, 0);
-console.log(list);
+console.log(list.length());
