@@ -5,24 +5,16 @@ var makeChange = module.exports = function(amount, usedCoins) {
 
   if (amount <= 0) return usedCoins;
 
-  var min = {
-    coin: null,
-    coins: null
-  }
-
+  var minCoins;
   for (var i=0; i<coins.length; i++) {
     var coin = coins[i];
 
     if (amount - coin >= 0) {
       var res = makeChange(amount-coin, [coin].concat(usedCoins));
-      if (!min.coins || res.length < min.coins.length) {
-        min = {
-          coin: coin,
-          coins: res
-        }
-      }
+
+      if (!minCoins || res.length < minCoins.length) minCoins = res;
     }
   }
 
-  return min.coins;
+  return minCoins;
 }

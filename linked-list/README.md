@@ -26,4 +26,5 @@ append(value) {
 }
 ```
 while there is a next value, keep going through the list
+
 if a node without a next value is reached, set it's next value to be a new node with the specified value
