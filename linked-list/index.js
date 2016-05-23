@@ -1,5 +1,5 @@
 'use strict';
-const node = class {
+const node = module.exports = class {
 
   constructor(value, next) {
     this.value = value;
@@ -21,11 +21,7 @@ const node = class {
   length(i) {
     i = i || 0;
     if (this.next) return this.next.length(++i);
-    return ++i;
-  }
-
-  head(i) {
-    return this.value;
+    return i;
   }
 
   replace(index, value, i) {
@@ -37,8 +33,9 @@ const node = class {
 };
 
 function test() {
-  var list = new node(1);
+  var list = new node(null);
   console.log(list);
+  list.append(1);
   list.append(3);
   console.log(list);
   // list.insert(2, 0);
@@ -47,4 +44,4 @@ function test() {
   list.replace(0, 5);
   console.log(list);
 }
-test();
+// test();
