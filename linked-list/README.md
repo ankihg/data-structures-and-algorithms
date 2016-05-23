@@ -1,5 +1,5 @@
 # linked list
-my recursive implementation of the classic data structure linked list using JavaScript ES6 classes
+my recursive implementation of the classic data structure [linked list](https://en.wikipedia.org/wiki/Linked_list) using [JavaScript ES6 classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)</a>
 
 
 ## data structure
