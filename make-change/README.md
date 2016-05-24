@@ -30,11 +30,15 @@ function makeChange(amount, usedCoins) {
 ```
 
 ## now with memoization
-since the make change problem has **overlapping subproblems** and an **optimal substructure** we can utilized dynamic programming to eliminate repetitive calculations
+since the make change problem has both
 
-**verlappping subproblems** - solution to a given subproblem may be used multiple times
+&nbsp;&nbsp; **overlappping subproblems** - solution to a given subproblem may be used multiple times
 
-**optimal substructure** - solution is formed from solutions of its subproblems
+&nbsp;&nbsp; **optimal substructure** - solution is formed from solutions of its subproblems
+
+dynamic programming can be utilized to eliminate repetitive calculations.
+
+as the algorithm recurses through subproblems, it may be calculating the same problem multiple times. to minimize calculations, we can cache the solutions to these subproblems and use the cached value as opposed to recalculating the solution. this technique is called **memoization**.
 
 ```
 function makeChangeMemo(amount, usedCoins, memo) {
