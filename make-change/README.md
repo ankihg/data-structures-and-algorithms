@@ -1,5 +1,5 @@
 # make change
-some implementations of the common make change algorithm. i first solve the problem with a primitive, non-greedy approach then incorporate memoization to reduce runtime.
+some implementations of the common make change algorithm. i first solve the problem with a primitive non-greedy approach then incorporate memoization to reduce runtime.
 
 ## setup
 let's define our coins
