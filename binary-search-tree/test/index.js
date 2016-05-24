@@ -1,23 +1,41 @@
 const expect = require('chai').expect;
-const Node = require('../node');
+const Tree = require('../tree');
 
 describe('binary search tree testing', () => {
 
   var root;
   before(() => {
-    root = new Node(5);
+    root = new Tree(5);
+    expect(root.height()).eql(0);
   });
 
-  it('insert node with value 7 to right child', () => {
-    root.insert(7);
-    expect(root.left).equal(null);
-    expect(root.right.value).equal(7);
+  describe('chilren inserts', () => {
+    it('insert node with value 3 to left child', () => {
+      root.insert(3);
+      expect(root.left.value).equal(3);
+      expect(root.height()).eql(1);
+    });
+
+    it('insert node with value 7 to right child', () => {
+      root.insert(7);
+      expect(root.right.value).equal(7);
+      expect(root.height()).eql(1);
+    });
   });
 
-  it('insert node with value 6 to left child of right child', () => {
-    root.insert(6);
-    expect(root.left).equal(null);
-    expect(root.right.left.value).equal(6);
+  describe('grandchildren inserts', () => {
+    it('insert node with value 6 to left child of right child', () => {
+      root.insert(6);
+      expect(root.right.left.value).equal(6);
+      expect(root.height()).eql(2);
+    });
+
+    it('insert node with value 2 to left child of left child', () => {
+      root.insert(2);
+      expect(root.left.left.value).equal(2);
+      expect(root.height()).eql(2);
+    });
   });
+
 
 })
