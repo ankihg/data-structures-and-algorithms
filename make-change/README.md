@@ -2,7 +2,7 @@
 some implementations of the common make change algorithm. i first solve the problem with a primitive non-greedy approach then incorporate memoization to reduce runtime.
 
 ## setup
-let's define our coins
+let's define our coins.
 ```
 const coins = [1, 5, 10, 25];
 ```
@@ -32,7 +32,7 @@ function makeChange(amount, usedCoins) {
 ## now with memoization
 since the make change problem has both
 
-&nbsp;&nbsp;&nbsp;&nbsp; **overlappping subproblems** - solution to a given subproblem may be used multiple times
+&nbsp;&nbsp;&nbsp;&nbsp; **overlappping subproblems** - solution to a subproblem may be used multiple times
 
 &nbsp;&nbsp;&nbsp;&nbsp; **optimal substructure** - solution is formed from solutions of its subproblems
 
