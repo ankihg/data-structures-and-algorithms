@@ -1,7 +1,7 @@
 # make change
 my implementations of the common make change algorithm, first without and then with memoization
 
-
+## setup
 let's define our coins
 ```
 const coins = [1, 5, 10, 25];
@@ -30,11 +30,11 @@ function makeChange(amount, usedCoins) {
 ```
 
 ## now with memoization
-since the make change problem has overlapping subproblems and an optimal substructure we can utilized dynamic programming to eliminate repetitive calculations
+since the make change problem has *overlapping subproblems* and an *optimal substructure* we can utilized dynamic programming to eliminate repetitive calculations
 
-overlappping subproblems - solution to a given subproblem may be used multiple times
+*overlappping subproblems* - solution to a given subproblem may be used multiple times
 
-optimal substructure - solution is formed from solutions of its subproblems
+*optimal substructure* - solution is formed from solutions of its subproblems
 
 ```
 function makeChangeMemo(amount, usedCoins, memo) {
