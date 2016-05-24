@@ -1,6 +1,15 @@
 # binary search tree
 my implementation of a [binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) with [javascript es6 classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
+## a bst tree
+```
+  constructor(value, left, right) {
+    this.value = value;
+    this.left = left || null;
+    this.right = right || null;
+  }
+```
+
 ## methods
 ### insert
 if the value is less than the current tree's value, insert it on the left subtree.
