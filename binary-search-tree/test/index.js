@@ -37,5 +37,21 @@ describe('binary search tree testing', () => {
     });
   });
 
+  describe('depth first traverse', () => {
 
-})
+    var root;
+    beforeEach(() => {
+      root = new Tree(5);
+      root.insert(3);
+      root.insert(7);
+      root.insert(6);
+      root.insert(2);
+    });
+
+    it('depth first traverse', () => {
+      expect(root.depthFirstTraverse()).eql([5, 3, 2, 7, 6]);
+    });
+
+  });
+
+});

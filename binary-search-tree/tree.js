@@ -16,4 +16,14 @@ const Tree = module.exports = class {
     return Math.max((this.left) ? 1+this.left.height() : 0, (this.right) ? 1+this.right.height(): 0);
   }
 
+  depthFirstTraverse(acc) {
+    acc = acc || [];
+
+    acc.push(this.value);
+    if (this.left) this.left.depthFirstTraverse(acc);
+    if (this.right) this.right.depthFirstTraverse(acc);
+
+    return acc;
+  }
+
 }
