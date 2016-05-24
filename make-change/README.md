@@ -1,7 +1,9 @@
 # make change
-some implementations of the common [change-making algorithm](https://en.wikipedia.org/wiki/Change-making_problem). i first solve the problem with a primitive non-greedy approach then incorporate memoization to reduce runtime.
+two implementations of the common [change-making algorithm](https://en.wikipedia.org/wiki/Change-making_problem). 
 
-given an amount, make change with as few coins possible
+given an amount, make change with as few coins possible.
+
+i first solve the problem with a primitive non-greedy approach then incorporate memoization to reduce runtime.
 
 ## setup
 let's define our coins.
