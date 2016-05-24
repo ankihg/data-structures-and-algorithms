@@ -26,4 +26,16 @@ const Tree = module.exports = class {
     return acc;
   }
 
+  breadthFirstTraverse(toVisit, acc) {
+    toVisit = toVisit || [];
+    acc = acc || [];
+
+    acc.push(this.value);
+    if (this.left) toVisit.push(this.left);
+    if (this.right) toVisit.push(this.right);
+
+    if (toVisit.length) return toVisit.shift().breadthFirstTraverse(toVisit, acc);
+    return acc;
+  }
+
 }

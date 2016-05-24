@@ -52,6 +52,10 @@ describe('binary search tree testing', () => {
       expect(root.depthFirstTraverse()).eql([5, 3, 2, 7, 6]);
     });
 
+    it('breadth first traverse', () => {
+      expect(root.breadthFirstTraverse()).eql([5, 3, 7, 2, 6]);
+    });
+
   });
 
 });
