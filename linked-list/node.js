@@ -30,4 +30,18 @@ const node = module.exports = class {
     return i;
   }
 
+  reverse(prev) {
+    prev = prev || null;
+    if (!this.value && this.next) return this.next.reverse(null);
+
+    let next = this.next;
+    this.next = prev;
+
+    if (next) return next.reverse(this);
+
+    let head = (new node(null));
+    head.next = this;
+    return head;
+  }
+
 };

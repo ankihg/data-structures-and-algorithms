@@ -51,5 +51,22 @@ describe('linked list testing', () => {
     expect(head.length()).eql(3);
   });
 
+  describe('reverse a linked list', () => {
+
+    var head;
+    beforeEach(() => {
+      head = new Node(null);
+      head.append('p');
+      head.append('l');
+      head.append('z');
+    })
+
+    it('reverse a linked list', () => {
+      var reversed = head.reverse();
+      expect(reversed.value).eql(null);
+      expect(reversed.next.value).eql('z');
+    });
+  })
+
 
 });
