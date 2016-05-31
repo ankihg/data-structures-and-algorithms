@@ -27,4 +27,40 @@ append(value) {
 ```
 while there is a next value, keep going through the list
 
-if a node without a next value is reached, set it's next value to be a new node with the specified value
+if a node without a next value is reached, set its next value to be a new node with the specified value
+
+this algorithm has a runtime complexity of O(n) because each node in the list is visited
+
+### insert
+inserts an element into the linked list at the specified index with the specified value
+
+```
+insert(value, index, i) {
+  i = i || 0;
+  // will append, if index > length
+  if (index == i || !this.next) return this.next = new node(value, this.next);
+  return this.next.insert(value, index, ++i);
+}
+```
+
+while index has not been reached and there is a next element, keep moving through the list
+
+when index or end of list has been reached, set the next node to a new node with the specified value and set the new node's next element to the current node's next element
+
+This maintains a runtime complexity of O(index) with a worst case of O(n), if the index exceeds the length
+
+### replace
+replace the value at the specified index with the specified value
+
+```
+replace(index, value, i) {
+  i = i || 0;
+  if (index == i) return this.value = value;
+  if (this.next) return this.next.replace(index, value, ++i);
+}
+```
+keep moving through the list while the index hasn't been reached and there is a next element
+
+if the index is reached, replace the node's value with the specified value
+
+if the end of the list is reached before the index, no value is replaced and the function returns undefined

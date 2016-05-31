@@ -4,54 +4,92 @@ const Node = require('../node.js');
 
 describe('linked list testing', () => {
 
-  var head;
+  describe('append testing', () => {
+    var head;
 
-  before(() => {
-      head = new Node(null);
-  })
+    before(() => {
+        head = new Node(null);
+    });
 
-  it('append an element with val "p" and have length 1', () => {
-    head.append('p');
-    expect(head.length()).eql(1);
+    it('element with val "p" and have length 1', () => {
+      head.append('p');
+      expect(head.length()).eql(1);
+    });
+
+    it('element with val "z" and last element has value "z"', () => {
+      head.append('z');
+
+      var lastElement = head;
+      while (lastElement.next) lastElement = lastElement.next;
+      expect(lastElement.value).eql('z');
+    });
+
   });
 
-  it('append an element with val "z" and last element has value "z"', () => {
-    head.append('z');
+  describe('insertion testing', () => {
 
-    var lastElement = head;
-    while (lastElement.next) lastElement = lastElement.next;
-    expect(lastElement.value).eql('z');
+    var head;
+    beforeEach(() => {
+        head = new Node(null);
+        head.append('p');
+        head.append('z');
+    });
+
+    it('element with val "l" at index 1 between "p" and "z"', () => {
+      head.insert('l', 1);
+
+      var str = '';
+      var node = head.next;
+      while (node) {
+        str += node.value;
+        node = node.next;
+      }
+
+      expect(str).eql('plz');
+      expect(head.length()).eql(3);
+    });
+
+    it('element with val "r" at index 5, exceeds length, should append', () => {
+      head.insert('r', 5);
+      var str = '';
+      var node = head.next;
+      while (node) {
+        str += node.value;
+        node = node.next;
+      }
+      expect(str).eql('pzr');
+      expect(head.length()).eql(3);
+    })
   });
 
-  it('insert an element with val "l" at index 1 between "p" and "z"', () => {
-    head.insert('l', 1);
+  describe('replacement testing', () => {
 
-    var str = '';
-    var node = head.next;
-    while (node) {
-      str += node.value;
-      node = node.next;
-    }
+    var head;
+    beforeEach(() => {
+        head = new Node(null);
+        head.append('p');
+        head.append('l');
+        head.append('z');
+        head.append('s');
+    });
 
-    expect(str).eql('plz');
-    expect(head.length()).eql(3);
+
+    it('index 4 with "r"', () => {
+      head.replace(4, 'r');
+
+      var str = '';
+      var node = head.next;
+      while (node) {
+        str += node.value;
+        node = node.next;
+      }
+
+      expect(str).eql('plzr');
+      expect(head.length()).eql(4);
+    });
   });
 
-  it('replace value of element 3 with "r"', () => {
-    head.replace(3, 'r');
-
-    var str = '';
-    var node = head.next;
-    while (node) {
-      str += node.value;
-      node = node.next;
-    }
-
-    expect(str).eql('plr');
-    expect(head.length()).eql(3);
-  });
-
-  describe('reverse a linked list', () => {
+  describe('reversal testing', () => {
 
     var head;
     beforeEach(() => {
