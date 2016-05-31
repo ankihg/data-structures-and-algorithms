@@ -38,4 +38,10 @@ const Tree = module.exports = class {
     return acc;
   }
 
+  search(value) {
+    if (value === this.value) return this.value;
+    if (value < this.value) return (this.left) ? this.left.search(value) : false;
+    return (this.right) ? this.right.search(value) : false;
+  }
+
 }
