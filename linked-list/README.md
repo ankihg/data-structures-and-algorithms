@@ -101,6 +101,6 @@ reverse(prev) {
   return head;
 }
 ```
-the algorithm moves through the linked list, setting its next element to the node before it.
+the algorithm moves through the linked list, setting each node's next element to the node before it.
 
 this has a runtime of O(n) because each node must be visited
