@@ -39,7 +39,7 @@ const node = module.exports = class {
 
     if (next) return next.reverse(this);
 
-    let head = (new node(null));
+    let head = new node(null);
     head.next = this;
     return head;
   }

@@ -81,3 +81,26 @@ while there is a next element, keep moving through the list incrementing i
 when there is no next element, return i
 
 calculating the length of a linked list takes O(n) because each element must be visited
+
+## bonus methods
+### reverse
+reverse the elements of a linked list
+
+```
+reverse(prev) {
+  prev = prev || null;
+  if (!this.value && this.next) return this.next.reverse(null);
+
+  let next = this.next;
+  this.next = prev;
+
+  if (next) return next.reverse(this);
+
+  let head = new node(null);
+  head.next = this;
+  return head;
+}
+```
+the algorithm moves through the linked list, setting its next element to the node before it.
+
+this has a runtime of O(n) because each node must be visited
