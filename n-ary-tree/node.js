@@ -15,6 +15,19 @@ const node = module.exports = class {
     return acc;
   }
 
+  breadthFirstTraverseZigZag(toVisit, acc) {
+    toVisit = toVisit || [];
+    acc = acc || [];
+
+    acc.push(this.val);
+    this.children.forEach((c) => c.level = level+1);
+    if (this.level%2 == 0) toVisit.concat(this.children);
+    else toVisit.concat(this.children.reduce((acc, cur) => acc.unshift(cur)));
+
+    if (toVisit.)
+    return acc;
+  }
+
 }
 
 
